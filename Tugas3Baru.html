@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<script>
+function test(){
+$.ajax({
+  url: 'FunctionPHP.php',
+  type:'GET',
+  data: {
+    func : "hypotenuseTriangle",
+    input1 : document.getElementById('UserInput1').value,
+    input2 : document.getElementById('UserInput2').value
+  },
+  success: function(response){
+    document.getElementById('Result').innerHTML = response;
+  }
+  });
+}
+</script>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="Tugas4.html">Home</a>
+  <a href="TugasBaru.html">Convert GPA Score</a>
+  <a href="Tugas2Baru.html">Calculate Square Root</a>
+  <a href="Tugas3Baru.html">Calculate Hypotenuse</a>
+</div>
+
+<div class="main">
+  <div class="div1">
+Insert Base: <input id="UserInput1" class="UI1" type="text"/>
+</div>
+<div class="div2">
+Insert Altitude: <input id="UserInput2" class="UI2" type="text"/>
+<br>
+</div>
+<button id="button" onClick="test()">Calculate</button>
+<label id="Result"></label>
+</div>
+   
+</body>
+</html> 
